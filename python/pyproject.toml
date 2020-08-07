@@ -1,0 +1,15 @@
+[tool.black]
+line-length = 88
+py36 = false
+exclude = '''
+/(
+    \.git
+  | \.idea
+  | miracl_core_py_bn254
+  | miracl_core_cpp_bn254
+  | miracl_core_c_bn254
+  # The following are specific to Black, you probably don't want those.
+  | blib2to3
+  | tests/data
+)/
+'''
