@@ -6,6 +6,7 @@ WORKDIR /usr/src/
 RUN apt-get update \
     && apt-get install -y --no-install-recommends git \
     && git clone https://github.com/burkh4rt/miracl-core.git \
+    && git --git-dir=./miracl-core/.git checkout -fq 0f80745 \
     && cp ./miracl-core/python/* . \
     && rm -rf ./miracl-core/ \
     && sed -i '126,127d' config.py \
