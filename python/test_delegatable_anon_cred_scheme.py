@@ -7,8 +7,8 @@ class TestMercurialSignatureScheme(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.DAC1 = DelegatableAnonCredScheme(2)
-        cls.DAC2 = DelegatableAnonCredScheme(7)
-        cls.DAC3 = DelegatableAnonCredScheme(9)
+        cls.DAC2 = DelegatableAnonCredScheme(3)
+        cls.DAC3 = DelegatableAnonCredScheme(4)
 
     def test_chain(self):
         for DAC in [self.DAC1, self.DAC2, self.DAC3]:

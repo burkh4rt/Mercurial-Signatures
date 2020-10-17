@@ -1,0 +1,23 @@
+FROM python:3.9.0
+LABEL maintainer="burkh4rt"
+
+WORKDIR /usr/src/
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends git \
+    && git clone https://github.com/burkh4rt/miracl-core.git \
+    && cp ./miracl-core/python/* . \
+    && rm -rf ./miracl-core/ \
+    && sed -i '126,127d' config.py \
+    && sed -i '125 i\for x in [8,0]:' config.py \
+    && python config.py
+
+COPY . .
+
+RUN echo "Testing Mercurial Singature Scheme..."
+RUN python test_mercurial_signature_scheme.py
+
+RUN echo "Testing Delegatable Anonymous Credential Scheme..."
+RUN python test_delegatable_anon_cred_scheme.py
+
+

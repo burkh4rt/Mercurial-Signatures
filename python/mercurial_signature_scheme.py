@@ -1,12 +1,12 @@
 import functools
 import hashlib
 
-from miracl_core_py_bn254 import big
-from miracl_core_py_bn254 import curve
-from miracl_core_py_bn254 import ecp
-from miracl_core_py_bn254 import ecp2
-from miracl_core_py_bn254 import fp12
-from miracl_core_py_bn254 import pair
+from bn254 import big
+from bn254 import curve
+from bn254 import ecp
+from bn254 import ecp2
+from bn254 import fp12
+from bn254 import pair
 
 
 class MercurialSignatureScheme:
