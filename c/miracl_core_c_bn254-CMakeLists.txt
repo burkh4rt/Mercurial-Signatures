@@ -1,0 +1,17 @@
+cmake_minimum_required(VERSION 3.13)
+
+add_library(miracl_core_c_bn254 STATIC
+        big_256_56.c
+        ecp2_BN254.c
+        ecp_BN254.c
+        fp2_BN254.c
+        fp4_BN254.c
+        fp12_BN254.c
+        fp_BN254.c
+        hash.c
+        pair_BN254.c
+        rand.c
+        randapi.c
+        rom_curve_BN254.c
+        rom_field_BN254.c
+        )
