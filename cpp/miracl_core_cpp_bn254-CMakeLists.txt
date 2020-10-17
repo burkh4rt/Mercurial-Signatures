@@ -1,0 +1,19 @@
+cmake_minimum_required(VERSION 3.13)
+
+set(CMAKE_CXX_STANDARD 17)
+
+add_library(miracl_core_cpp_bn254 STATIC
+        big_B256_56.cpp
+        ecp2_BN254.cpp
+        ecp_BN254.cpp
+        fp2_BN254.cpp
+        fp4_BN254.cpp
+        fp12_BN254.cpp
+        fp_BN254.cpp
+        hash.cpp
+        pair_BN254.cpp
+        rand.cpp
+        randapi.cpp
+        rom_curve_BN254.cpp
+        rom_field_BN254.cpp
+        )

@@ -1,0 +1,23 @@
+FROM gcc:10.2
+LABEL maintainer="burkh4rt"
+
+WORKDIR /usr/
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends cmake \
+    && git clone https://github.com/burkh4rt/miracl-core.git \
+    && mkdir ./miracl_core_cpp_bn254/ \
+    && cp ./miracl-core/cpp/* ./miracl_core_cpp_bn254/ \
+    && rm -rf ./miracl-core/ \
+    && cd ./miracl_core_cpp_bn254/ \
+    && sed -i '704,708d' config64.py \
+    && sed -i '703 i\for x in [26,0]:' config64.py \
+    && python config64.py \
+    && cd ..
+
+COPY . .
+
+RUN mv miracl_core_cpp_bn254-CMakeLists.txt ./miracl_core_cpp_bn254/CMakeLists.txt \
+    && cmake . \
+    && make \
+    && ./dac_hg_sigs
