@@ -1,6 +1,9 @@
 
 # Basic .gitattributes for a python repo.
 
+#idiosyncratic
+dockerfile linguist-language=Dockerfile
+
 # Source files
 # ============
 *.pxd    text diff=python
