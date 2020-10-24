@@ -1,0 +1,16 @@
+[package]
+name = "mercurial_signatures"
+version = "0.1.0"
+authors = ["burkh4rt <burkh4rt@gmail.com>"]
+edition = "2018"
+
+# [lib]
+# name = "mercurial_signatures"
+# path = "src/lib.rs"
+
+[[bin]]
+name = "run_example"
+path = "src/bin.rs"
+
+[dependencies]
+core = {path="/usr/src/core/core", version="0.1.0"}

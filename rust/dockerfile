@@ -1,0 +1,22 @@
+FROM rust:1.47
+LABEL maintainer="burkh4rt"
+
+WORKDIR /usr/src/
+USER root
+ENV USER root
+
+RUN git clone https://github.com/burkh4rt/miracl-core.git \
+    && git --git-dir=./miracl-core/.git checkout -fq c340052 \
+    && mkdir ./core/ \
+    && cp ./miracl-core/rust/* ./core/ \
+    && rm -rf ./miracl-core/ \
+    && cd core/ \
+    && sed -i '349,353d' config64.py \
+    && sed -i '348 i\    for x in [28,0]:' config64.py \
+    && python3 config64.py \
+    && cd ..
+
+COPY . .
+
+RUN cargo build
+CMD cargo run
