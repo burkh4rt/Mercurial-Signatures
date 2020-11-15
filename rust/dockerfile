@@ -14,13 +14,6 @@ RUN git clone https://github.com/burkh4rt/miracl-core.git \
     && sed -i '348 i\    for x in [28,0]:' config64.py \
     && python3 config64.py
 
-
-FROM rust:1.47
-LABEL maintainer="burkh4rt"
-
-WORKDIR /usr/src/
-
-COPY --from=miracl-core-bn254-rust /usr/src/rust-core ./rust-core/
 COPY . .
 
 RUN cargo build
