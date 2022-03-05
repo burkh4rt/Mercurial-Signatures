@@ -6,12 +6,10 @@ WORKDIR /usr/src/
 RUN apt-get update \
     && apt-get install -y --no-install-recommends git \
     && git clone https://github.com/burkh4rt/miracl-core.git \
-    && git --git-dir=./miracl-core/.git checkout -fq 0f80745 \
+    && git -C miracl-core checkout -b dev-python-autoconfiguration -fq a1c831f \
     && cp ./miracl-core/python/* . \
     && rm -rf ./miracl-core/ \
-    && sed -i '126,127d' config.py \
-    && sed -i '125 i\for x in [8,0]:' config.py \
-    && python config.py
+    && python3 auto_config.py 8
 
 COPY . .
 
@@ -20,5 +18,3 @@ RUN python test_mercurial_signature_scheme.py
 
 RUN echo "Testing Delegatable Anonymous Credential Scheme..."
 RUN python test_delegatable_anon_cred_scheme.py
-
-
