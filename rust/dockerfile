@@ -5,7 +5,7 @@ WORKDIR /usr/src/
 ENV USER root
 
 RUN git clone https://github.com/burkh4rt/miracl-core.git \
-    && git --git-dir=./miracl-core/.git checkout -fq c340052 \
+    && git -C miracl-core checkout -fq c340052 \
     && mkdir ./rust-core/ \
     && cp ./miracl-core/rust/* ./rust-core/ \
     && rm -rf ./miracl-core/ \

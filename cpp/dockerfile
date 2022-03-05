@@ -6,7 +6,7 @@ WORKDIR /usr/
 RUN apt-get update \
     && apt-get install -y --no-install-recommends cmake \
     && git clone https://github.com/burkh4rt/miracl-core.git \
-    && git --git-dir=./miracl-core/.git checkout -fq 0f80745 \
+    && git -C miracl-core checkout -fq 0f80745 \
     && mkdir ./miracl_core_cpp_bn254/ \
     && cp ./miracl-core/cpp/* ./miracl_core_cpp_bn254/ \
     && rm -rf ./miracl-core/ \

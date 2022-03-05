@@ -1,7 +1,7 @@
-### python
+## python code
 
-Runs with [docker](docker.com):
+Runs with docker:
+
 ```
-docker build -t merc-sigs .
-docker run merc-sigs
+docker build -t merc-sigs-python .
 ```
